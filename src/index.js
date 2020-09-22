@@ -26,7 +26,7 @@ new Vue({
     template:`
         <div>
             <dbclick-edit :isEdit="isEdit"/>
-            <preview-pic :src='previewsrc' :isShow.sync="visible" />
+            <preview-pic :src.sync='previewsrc' :isShow.sync="visible" />
             <img @click="previewsrc=src;visible=true" width='400px' :src="src" alt="" v-for="(src,i) in srcArr" :key='i'>
         </div>
     `
