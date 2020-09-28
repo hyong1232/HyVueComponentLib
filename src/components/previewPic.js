@@ -12,7 +12,8 @@ export default {
   },
   data(){
     return{
-        innerIsShow:this.isShow
+        innerIsShow:this.isShow,
+        innerSrc:this.src
     }
   },
   methods: {
@@ -30,10 +31,14 @@ export default {
       isShow(){
           this.innerIsShow = this.isShow
       },
+      src(){
+        this.innerSrc = this.src
+      },
       innerIsShow(val){
           this.$emit('update:isShow',val)
         },
-      src(val){
+      innerSrc(val){
+        this.$emit('update:src',val)
         this.$nextTick(_=>{
           this._getImg(val)
           .then(img=>{
@@ -44,14 +49,13 @@ export default {
             canvas.height = img.height
             ctv.drawImage(img,0,0,img.width,img.height)
           }).catch(e=>{
-            console.log(e)
+            console.error(e)
           })
-
         })
       },
   },
   template: `
-    <div class="previewbox" v-if="innerIsShow===true" @click="innerIsShow=false">
+    <div class="previewbox" v-if="innerIsShow===true" @click="innerIsShow=false;innerSrc=''">
         <canvas @click.stop ref='canvas'/>
     </div>
     `,
