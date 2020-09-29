@@ -31,6 +31,12 @@ export default {
         },
         show(val){
             this.$emit('update:isshow',val)
+        },
+        activeIndex(){
+            this.index = this.activeIndex
+        },
+        index(val){
+            this.$emit('update:active-index',val)
             this.$nextTick(_ => {
                 let canvas = this.$refs.canvas
                 let ctx = canvas.getContext('2d')
@@ -44,12 +50,6 @@ export default {
                         console.error(err);
                     })
             })
-        },
-        activeIndex(){
-            this.index = this.activeIndex
-        },
-        index(val){
-            this.$emit('update:active-index',val)
         }
     },
     methods:{
@@ -64,14 +64,22 @@ export default {
         }
     },
     computed:{
-
+        totalNum(){
+            return `${this.index+1}/${this.imglist.length}`
+        }
     },
     template:`
     <div class="previewbox" v-if="show" @click="show=false">
-        <div class="goleft">
+        <div class="goleft" @click.stop='index<1?index=imglist.length-1:index--;'>
             <div class="directionpicleft"></div>
         </div>
         <canvas @click.stop ref='canvas'/>
+        <div class="goright" @click.stop='index>imglist.length-2?index=0:index++;'>
+            <div class="directionpicright"></div>
+        </div>
+        <div class="totalNum">
+            {{totalNum}}
+        </div>
     </div>
     `
 }

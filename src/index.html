@@ -17,7 +17,31 @@
             align-items: center;
             background-color: #eeeeeeaf;
         }
+        .goright{
+            position:absolute;
+            right:1%;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ccc;
+        }
+        .directionpicright{
+            width: 26px;
+            height: 26px;
+            border-bottom: 2px solid #ccc;
+            border-right: 2px solid #ccc;
+            transform: translate(8px,16px) rotate(-45deg);
+            box-shadow: 5 5 10 #ccc;
+        }
+        .goright:hover{
+            box-shadow:0px 0px 10px #ccc;
+        }
+        .goleft:hover{
+            box-shadow:0px 0px 10px #ccc;
+        }
         .goleft{
+            position:absolute;
+            left:1%;
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -30,6 +54,23 @@
             border-top: 2px solid #ccc;
             transform: translate(20px,16px) rotate(-45deg);
             box-shadow: 5 5 10 #ccc;
+        }
+        .totalNum{
+            position:absolute;
+            bottom:5%;
+            font-size: 20px;
+        }
+        .drawerbox{
+            position:fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: #cccccc9f;
+        }
+        .drawercontent{
+            position:absolute;
+            background-color:white;
         }
     </style>
 </head>
