@@ -5,7 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue custom component page</title>
     <script src="../source/vue.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <style>
+        .tip_messagetipsbox{
+            background-color: #fef0f0;
+            border-color: #fef0f0;
+            border-radius:4px;
+            overflow: hidden;
+            align-items: center;
+            z-index: 2000;
+            display: flex;
+            position:fixed;
+            right: 30px;
+            min-width: 380px;
+        }
+        .tip_iconbox{
+            width: 30px;
+            height: 30px;
+            background:center/contain no-repeat url('./error.png');
+            margin: 0 10px;
+        }
+        .tip_textbox{
+            color: #F56C6C;
+            font-size: 18px;
+            padding-right: 16px;
+        }
         .previewbox{
             position:fixed;
             top: 0;
@@ -76,6 +103,7 @@
 </head>
 <body>
     <div id="app">
+        
     </div>
 </body>
 </html>
